@@ -1,6 +1,6 @@
 # soccer-management
 
-O software será responsável pela criação de times de futebol e seus respectivos elencos.
+O software será responsável pela criação de times de futebol e seus respectivos elencos..
 
 ## Endereço de Deploy - GitHub Pages
 
