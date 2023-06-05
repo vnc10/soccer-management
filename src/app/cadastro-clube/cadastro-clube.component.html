@@ -1,0 +1,34 @@
+<form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome"  name="nome" required>
+    </div>
+    <div>
+      <label for="dataFuncao">Data de Função:</label>
+      <input type="text" id="dataFuncao" name="dataFuncao" required>
+    </div>
+    <div>
+      <label for="nomeEstadio">Nome do Estádio:</label>
+      <input type="text" id="nomeEstadio"  name="nomeEstadio" required>
+    </div>
+    <div>
+      <label for="categoriasBase">Possui Categorias de Base?</label>
+      <select id="categoriasBase"  name="categoriasBase" required>
+        <option value="sub-23">Sub-23</option>
+        <option value="naoPossui">Não Possui</option>
+        <option value="todas">Todas</option>
+      </select>
+    </div>
+    <div>
+      <label for="ativo">Clube está ativo?</label>
+      <input type="radio" id="ativo"  name="ativo" value="sim" required>
+      <label for="ativo">Sim</label>
+      <input type="radio" id="inativo" name="ativo" value="nao" required>
+      <label for="inativo">Não</label>
+    </div>
+    <div>
+      <button type="submit" class="btn">OK</button>
+      <button type="button" class="btn" (click)="onCancel()">Cancelar</button>
+    </div>
+  </form>
+  
