@@ -1,0 +1,35 @@
+.landing {
+    background: #f7f7f7;
+    padding: 100px 0;
+    text-align: center;
+  }
+  
+  .landing h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .landing p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .button-container .btn {
+    display: inline-block;
+    background: #039be5;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .button-container .btn:hover {
+    background: #01579b;
+  }
+  
