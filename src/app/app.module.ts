@@ -9,6 +9,11 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 
 import { HomeComponent } from './home/home.component';
 import { CadastroClubeComponent } from './cadastro-clube/cadastro-clube.component';
+import { CadastroJogadorComponent } from './cadastro-jogador/cadastro-jogador.component';
+import { ListarJogadoresComponent } from './listar-jogadores/listar-jogadores.component';
+import { ListarClubesComponent } from './listar-clubes/listar-clubes.component';
+import { EditarJogadorComponent } from './editar-jogador/editar-jogador.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,11 +22,16 @@ import { CadastroClubeComponent } from './cadastro-clube/cadastro-clube.componen
     FooterComponent,
     LandingPageComponent,
     HomeComponent,
-    CadastroClubeComponent
+    CadastroClubeComponent,
+    CadastroJogadorComponent,
+    ListarJogadoresComponent,
+    ListarClubesComponent,
+    EditarJogadorComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,27 @@
+<div class="editar-jogador">
+  <h2>Editar Jogador</h2>
+  <div class="form-group">
+    <label>Nome:</label>
+    <input [(ngModel)]="jogador.nome" type="text">
+  </div>
+  <div class="form-group">
+    <label>Posição:</label>
+    <input [(ngModel)]="jogador.posicao" type="text">
+  </div>
+  <div class="form-group">
+    <label>Altura:</label>
+    <input [(ngModel)]="jogador.altura" type="text">
+  </div>
+  <div class="form-group">
+    <label>Data de Nascimento:</label>
+    <input [(ngModel)]="jogador.dataNascimento" type="text">
+  </div>
+  <div class="form-group">
+    <label>Clube:</label>
+    <input [(ngModel)]="jogador.clube" type="text">
+  </div>
+  <div class="buttons">
+    <button type="submit">OK</button>
+    <button type="button">Cancelar</button>
+  </div>
+</div>
