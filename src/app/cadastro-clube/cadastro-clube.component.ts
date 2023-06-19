@@ -24,11 +24,9 @@ export class CadastroClubeComponent {
 
   onSubmit() {
     console.log('Formulário enviado:', this.cadastro);
-    // Aqui você pode adicionar a lógica para enviar os dados do formulário para o servidor ou fazer outras ações necessárias
   }
 
   onCancel() {
     console.log('Formulário cancelado');
-    // Aqui você pode adicionar a lógica para cancelar o formulário ou redirecionar para outra página, se necessário
   }
 }
