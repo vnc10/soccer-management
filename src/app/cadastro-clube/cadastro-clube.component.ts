@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Clube } from '../model/clube';
 
 interface Cadastro {
   nome: string;
@@ -14,19 +16,32 @@ interface Cadastro {
   styleUrls: ['./cadastro-clube.component.css']
 })
 export class CadastroClubeComponent {
-  cadastro: Cadastro = {
-    nome: '',
-    dataFuncao: '',
-    nomeEstadio: '',
-    categoriasBase: '',
-    ativo: ''
-  };
+  nome!: string;
+  dataFundacao!: string;
+  nomeEstadio!: string;
+  possuiCategoriasDeBase!: string;
+  ativo!: string;
 
-  onSubmit() {
-    console.log('Formulário enviado:', this.cadastro);
+  constructor(private router: ActivatedRoute, private route: Router) {
   }
 
-  onCancel() {
-    console.log('Formulário cancelado');
+  cadastrar(): void {
+    const clube: Clube = new Clube(
+      this.nome,
+      this.dataFundacao,
+      this.nomeEstadio,
+      this.possuiCategoriasDeBase,
+      this.ativo
+    );
+    let clubes: Clube[] = JSON.parse(localStorage.getItem('clubes')!) || [];
+    clubes.push(clube);
+    localStorage.setItem('clubes', JSON.stringify(clubes));
+
+    this.route.navigate(['/home']);
+
+  }
+
+  cancelar(): void {
+    this.route.navigate(['/home']);
   }
 }

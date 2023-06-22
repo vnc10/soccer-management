@@ -30,7 +30,6 @@ export class CadastroJogadorComponent {
     jogadores.push(jogador);
     localStorage.setItem('jogadores', JSON.stringify(jogadores));
 
-    console.log("aqui")
     this.route.navigate(['/home']);
 
   }
