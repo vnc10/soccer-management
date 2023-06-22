@@ -7,6 +7,10 @@
         <p>Categorias de Base: {{ clube.possuiCategoriasDeBase }}</p>
         <p>Ativo: {{ clube.ativo }}</p>
       </div>
+      <div class="card-actions">
+        <button [routerLink]="'/editar-clube/' + clube.nome" (click)="selecionarClube(clube)" class="btn">Editar</button>
+        <button (click)="this.excluirClube(clube)" class="btn">Excluir</button>
+      </div>
     </div>
   </div>
   

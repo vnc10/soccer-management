@@ -27,6 +27,20 @@ export class ListarJogadoresComponent implements OnInit {
 
   selecionarJogador(jogador: any) {
     this.jogadorSelecionado = jogador;
-    this.router.navigate(['/editar-jogador/' + this.jogadorSelecionado.nome], { state: { jogador: jogador } });
+    this.router.navigate(['/editar-jogador/' + this.jogadorSelecionado.id], { state: { jogador: jogador } });
   }
+
+  excluirJogador(jogador: any){
+    this.jogadorSelecionado = jogador;
+    if (this.jogadorSelecionado) {
+      const indice = this.jogadores.findIndex(clube => clube.id === this.jogadorSelecionado.id);
+      if (indice !== -1) {
+        this.jogadores.splice(indice, 1);
+        localStorage.setItem('jogadores', JSON.stringify(this.jogadores));
+        this.jogadorSelecionado = null;
+        this.router.navigate(['/home']);
+      }
+    }
+  }
+
 }

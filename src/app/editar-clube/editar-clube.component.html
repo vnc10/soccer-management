@@ -1,0 +1,43 @@
+<form action="#" #form="ngForm">
+    <h2>Editar Clube</h2>
+    <div>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" class="validate" pattern="^[A-Z][a-zA-Z\s]*$" [(ngModel)] = "clube.nome" #nomeClube="ngModel" required>
+      <div class="red-text" [hidden]="nomeClube.valid || nomeClube.untouched">
+        Por favor, digite o nome do clube
+      </div>
+    </div>
+    <div>
+      <label for="dataFundacao">Data de Fundação do Clube:</label>
+      <input type="text" id="dataFundacao" name="dataFundacao" class="validate" pattern="\d{2}\/\d{2}\/\d{4}" [(ngModel)] = "clube.dataFundacao" #dataFundacaoClube="ngModel" required>
+      <div class="red-text" [hidden]="dataFundacaoClube.valid || dataFundacaoClube.untouched">
+        or favor, informe a data de fundação do clube (no formato dd/mm/aaaa).
+      </div>
+    </div>
+    <div>
+      <label for="nomeEstadio">Nome do Estadio:</label>
+      <input type="text" id="nomeEstadio" name="nomeEstadio" class="validate" pattern="^[A-Z][a-zA-Z\s]*$" [(ngModel)] = "clube.nomeEstadio" #nomeEstadioClube="ngModel" required>
+      <div class="red-text" [hidden]="nomeEstadioClube.valid || nomeEstadioClube.untouched">
+        Por favor, digite o nome do estadio.
+      </div>
+    </div>
+    <div>
+      <label for="possuiCategoriasDeBase">Possui Categorias de Base?</label>
+      <input type="text" id="possuiCategoriasDeBase" name="possuiCategoriasDeBase" class="validate" pattern="^(sim|não)$" [(ngModel)] = "clube.possuiCategoriasDeBase" #possuiCategoriasDeBaseClube="ngModel" required>
+      <div class="red-text" [hidden]="possuiCategoriasDeBaseClube.valid || possuiCategoriasDeBaseClube.untouched">
+        Por favor, digite sim ou não
+      </div>
+    </div>
+    <div>
+      <label for="ativo">Clube está ativo?</label>
+      <input type="text" id="ativo" name="ativo" class="validate" pattern="^(sim|não)$" [(ngModel)] = "clube.ativo" #ativoClube="ngModel" required>
+      <div class="red-text" [hidden]="ativoClube.valid || ativoClube.untouched">
+        Por favor, digite sim ou não.
+      </div>
+    </div>
+    <div class="buttons">
+      <button (click)="this.editar()" [disabled]="!form.valid" type="submit">OK</button>
+      <button (click) = "this.cancelar()" type="button">Cancelar</button>
+    </div>
+  </form>
+  

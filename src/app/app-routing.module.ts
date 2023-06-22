@@ -6,6 +6,7 @@ import { CadastroJogadorComponent } from './cadastro-jogador/cadastro-jogador.co
 import { ListarJogadoresComponent } from './listar-jogadores/listar-jogadores.component';
 import { ListarClubesComponent } from './listar-clubes/listar-clubes.component';
 import { EditarJogadorComponent } from './editar-jogador/editar-jogador.component';
+import { EditarClubeComponent } from './editar-clube/editar-clube.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'listar-clubes', component: ListarClubesComponent},
   {path: 'listar-jogadores', component: ListarJogadoresComponent},
   {path: 'editar-jogador/:nome', component: EditarJogadorComponent},
+  {path: 'editar-clube/:nome', component: EditarClubeComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];
 

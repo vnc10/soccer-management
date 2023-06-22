@@ -14,6 +14,7 @@ import { ListarJogadoresComponent } from './listar-jogadores/listar-jogadores.co
 import { ListarClubesComponent } from './listar-clubes/listar-clubes.component';
 import { EditarJogadorComponent } from './editar-jogador/editar-jogador.component';
 import { FormsModule } from '@angular/forms';
+import { EditarClubeComponent } from './editar-clube/editar-clube.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     CadastroJogadorComponent,
     ListarJogadoresComponent,
     ListarClubesComponent,
-    EditarJogadorComponent
+    EditarJogadorComponent,
+    EditarClubeComponent
   ],
   imports: [
     BrowserModule,

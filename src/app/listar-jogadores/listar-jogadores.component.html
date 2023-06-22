@@ -9,7 +9,7 @@
     </div>
     <div class="card-actions">
       <button [routerLink]="'/editar-jogador/' + jogador.nome" (click)="selecionarJogador(jogador)" class="btn">Editar</button>
-      <button class="btn">Excluir</button>
+      <button (click) = "this.excluirJogador(jogador)" class="btn">Excluir</button>
     </div>
   </div>
 </div>

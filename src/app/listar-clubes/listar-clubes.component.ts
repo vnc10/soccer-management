@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-clubes',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarClubesComponent implements OnInit {
 
+  clubeSelecionado: any;
+
   clubes: any[] = [];
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.carregarClubes();
@@ -20,5 +25,23 @@ export class ListarClubesComponent implements OnInit {
     } 
   }
 
+  selecionarClube(clube: any) {
+    this.clubeSelecionado = clube;
+    this.router.navigate(['/editar-clube/' + this.clubeSelecionado.id], { state: { clube: clube } });
+  }
+
+  excluirClube(clube: any){
+    this.clubeSelecionado = clube;
+    if (this.clubeSelecionado) {
+      const indice = this.clubes.findIndex(clube => clube.id === this.clubeSelecionado.id);
+      console.log(indice)
+      if (indice !== -1) {
+        this.clubes.splice(indice, 1);
+        localStorage.setItem('clubes', JSON.stringify(this.clubes));
+        this.clubeSelecionado = null;
+        this.router.navigate(['/home']);
+      }
+    }
+  }
 
 }
