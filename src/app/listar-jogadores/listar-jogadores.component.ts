@@ -10,26 +10,19 @@ export class ListarJogadoresComponent implements OnInit {
 
   jogadorSelecionado: any;
 
-  jogadores: any[] = [
-    {
-      nome: 'Jogador 1',
-      posicao: 'Atacante',
-      altura: '1.80m',
-      dataNascimento: '01/01/1990',
-      clube: 'Clube A'
-    },
-    {
-      nome: 'Jogador 2',
-      posicao: 'Meio-campista',
-      altura: '1.75m',
-      dataNascimento: '02/02/1995',
-      clube: 'Clube B'
-    },
-  ];
+  jogadores: any[] = []
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.carregarJogadores();
+  }
+
+  carregarJogadores(){
+    const jogadores = localStorage.getItem('jogadores');
+    if (jogadores) {
+      this.jogadores = JSON.parse(jogadores);
+    } 
   }
 
   selecionarJogador(jogador: any) {

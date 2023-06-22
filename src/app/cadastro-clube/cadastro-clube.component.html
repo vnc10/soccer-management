@@ -22,7 +22,7 @@
   </div>
   <div>
     <label for="possuiCategoriasDeBase">Possui Categorias de Base?</label>
-    <input type="text" id="possuiCategoriasDeBase" name="possuiCategoriasDeBase" class="validate" pattern="^[A-Z][a-zA-Z\s]*$" [(ngModel)] = "this.possuiCategoriasDeBase" #possuiCategoriasDeBaseClube="ngModel" required>
+    <input type="text" id="possuiCategoriasDeBase" name="possuiCategoriasDeBase" class="validate" pattern="^(sim|não)$" [(ngModel)] = "this.possuiCategoriasDeBase" #possuiCategoriasDeBaseClube="ngModel" required>
     <div class="red-text" [hidden]="possuiCategoriasDeBaseClube.valid || possuiCategoriasDeBaseClube.untouched">
       Por favor, digite sim ou não
     </div>

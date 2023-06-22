@@ -2,10 +2,10 @@
     <div class="card" *ngFor="let clube of clubes">
       <div class="card-content">
         <h3>{{ clube.nome }}</h3>
-        <p>Fundação: {{ clube.fundacao }}</p>
-        <p>Estádio: {{ clube.estadio }}</p>
-        <p>Categorias de Base: {{ clube.categoriasBase }}</p>
-        <p>Ativo: {{ clube.ativo ? 'Sim' : 'Não' }}</p>
+        <p>Fundação: {{ clube.dataFundacao }}</p>
+        <p>Estádio: {{ clube.nomeEstadio }}</p>
+        <p>Categorias de Base: {{ clube.possuiCategoriasDeBase }}</p>
+        <p>Ativo: {{ clube.ativo }}</p>
       </div>
     </div>
   </div>
