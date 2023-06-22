@@ -1,27 +1,44 @@
+<form action="#" #form="ngForm">
 <div class="editar-jogador">
   <h2>Editar Jogador</h2>
   <div class="form-group">
     <label>Nome:</label>
-    <input [(ngModel)]="jogador.nome" type="text">
+    <input type="text" id="nome" name="nome" class="validate" pattern="^(\s?[A-ZÀ-Ú][a-zà-ú]*)+(\s[a-zà-ú]*)?(\s[A-ZÀ-Ú][a-zà-ú]*)+" [(ngModel)] = "jogador.nome" #nomeJogador="ngModel" required>
+    <div class="red-text" [hidden]="nomeJogador.valid || nomeJogador.untouched">
+      Por favor, digite o nome e sobrenome corretamente.
+    </div>
   </div>
   <div class="form-group">
     <label>Posição:</label>
-    <input [(ngModel)]="jogador.posicao" type="text">
+    <input type="text" id="posicao" name="posicao" class="validate" pattern="^[A-Z][a-zA-Z\s]*$" [(ngModel)] = "jogador.posicao" #posicaoJogador="ngModel" required>
+    <div class="red-text" [hidden]="posicaoJogador.valid || posicaoJogador.untouched">
+      Por favor, digite a posição corretamente.
+    </div>
   </div>
   <div class="form-group">
     <label>Altura:</label>
-    <input [(ngModel)]="jogador.altura" type="text">
+    <input type="text" id="altura" name="altura" class="validate" pattern="\d+(\.\d{1,2})?" [(ngModel)] = "jogador.altura" #alturaJogador="ngModel" required>
+    <div class="red-text" [hidden]="alturaJogador.valid || alturaJogador.untouched">
+      Por favor, informe a altura do jogador (no formato x.xx).
+    </div>
   </div>
   <div class="form-group">
     <label>Data de Nascimento:</label>
-    <input [(ngModel)]="jogador.dataNascimento" type="text">
+    <input type="text" id="dataNascimento" name="dataNascimento" class="validate" pattern="\d{2}\/\d{2}\/\d{4}" [(ngModel)] = "jogador.dataNascimento" #dataNascimentoJogador="ngModel" required>
+    <div class="red-text" [hidden]="dataNascimentoJogador.valid || dataNascimentoJogador.untouched">
+      Por favor, informe a data de nascimento do jogador (no formato dd/mm/aaaa).
+    </div>
   </div>
   <div class="form-group">
     <label>Clube:</label>
-    <input [(ngModel)]="jogador.clube" type="text">
+    <input type="text" id="clube" name="clube" class="validate" pattern="^[A-Z][a-zA-Z\s]*$" [(ngModel)] = "jogador.clube" #clubeJogador="ngModel" required>
+    <div class="red-text" [hidden]="clubeJogador.valid || clubeJogador.untouched">
+      Por favor, digite o nome começando com letra maiscula corretamente.
+    </div>
   </div>
   <div class="buttons">
-    <button type="submit">OK</button>
-    <button type="button">Cancelar</button>
+    <button (click)="editarJogador()" [disabled]="!form.valid" type="submit">OK</button>
+    <button (click)="this.cancelar()" type="button">Cancelar</button>
   </div>
 </div>
+</form>

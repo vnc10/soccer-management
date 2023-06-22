@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Clube } from '../model/clube';
 
 @Component({
   selector: 'app-editar-clube',
@@ -10,35 +9,40 @@ import { Clube } from '../model/clube';
 export class EditarClubeComponent implements OnInit {
 
   @Input() clube: any;
-  clubeNome: string | undefined;
+  clubeId: number | undefined;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => { this.clubeNome = params.get('nome') ?? undefined});
-    this.clube = history.state.clube;
+    this.route.paramMap.subscribe(params => {
+      this.clubeId = Number(params.get('id'));
+      const clubeFromState = history.state.clube;
+      if (clubeFromState) {
+        this.clube = clubeFromState;
+      } else {
+        const clubesString = localStorage.getItem('clubes');
+        if (clubesString) {
+          const clubes = JSON.parse(clubesString);
+          const clubeEncontrado = clubes.find((clube: any) => clube.id === this.clubeId);
+          if (clubeEncontrado) {
+            this.clube = clubeEncontrado;
+          }
+        }
+      }
+    });
   }
 
-  nome!: string;
-  dataFundacao!: string;
-  nomeEstadio!: string;
-  possuiCategoriasDeBase!: string;
-  ativo!: string;
-
-  editar(): void {
-    const clube: Clube = new Clube(
-      this.nome,
-      this.dataFundacao,
-      this.nomeEstadio,
-      this.possuiCategoriasDeBase,
-      this.ativo
-    );
-    let clubes: Clube[] = JSON.parse(localStorage.getItem('clubes')!) || [];
-    clubes.push(clube);
-    localStorage.setItem('clubes', JSON.stringify(clubes));
-
-    this.router.navigate(['/home']);
-
+  editarClube() {
+    const clubesString = localStorage.getItem('clubes');
+    if (clubesString) {
+      const clubes = JSON.parse(clubesString);
+      const indice = clubes.findIndex((clube: any) => clube.id === this.clubeId);
+      if (indice !== -1) {
+        clubes[indice] = this.clube;
+        localStorage.setItem('clubes', JSON.stringify(clubes));
+        this.router.navigate(['/home']);
+      }
+    }
   }
 
   cancelar(): void {

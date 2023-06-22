@@ -14,8 +14,8 @@ const routes: Routes = [
   {path: 'cadastrar-jogador', component: CadastroJogadorComponent},
   {path: 'listar-clubes', component: ListarClubesComponent},
   {path: 'listar-jogadores', component: ListarJogadoresComponent},
-  {path: 'editar-jogador/:nome', component: EditarJogadorComponent},
-  {path: 'editar-clube/:nome', component: EditarClubeComponent},
+  {path: 'editar-jogador/:id', component: EditarJogadorComponent},
+  {path: 'editar-clube/:id', component: EditarClubeComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];
 
