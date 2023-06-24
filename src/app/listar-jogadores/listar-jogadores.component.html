@@ -1,11 +1,11 @@
 <div class="card-container">
   <div class="card" *ngFor="let jogador of jogadores">
     <div class="card-content">
-      <h3>{{ jogador.nome }}</h3>
-      <p>Posição: {{ jogador.posicao }}</p>
+      <h3>{{ jogador.nome | uppercase}}</h3>
+      <p>Posição: {{ jogador.posicao | uppercase }}</p>
       <p>Altura: {{ jogador.altura }}</p>
       <p>Data de Nascimento: {{ jogador.dataNascimento }}</p>
-      <p>Clube: {{ jogador.clube }}</p>
+      <p>Clube: {{ jogador.clube | uppercase }}</p>
     </div>
     <div class="card-actions">
       <button [routerLink]="'/editar-jogador/' + jogador.nome" (click)="selecionarJogador(jogador)" class="btn">Editar</button>

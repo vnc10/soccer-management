@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { JogadorService } from '../jogador.service';
+import { Jogador } from '../model/jogador';
 
 @Component({
   selector: 'app-listar-jogadores',
@@ -12,17 +14,18 @@ export class ListarJogadoresComponent implements OnInit {
 
   jogadores: any[] = []
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private jogadorService: JogadorService) { }
 
   ngOnInit(): void {
     this.carregarJogadores();
   }
 
   carregarJogadores(){
-    const jogadores = localStorage.getItem('jogadores');
-    if (jogadores) {
-      this.jogadores = JSON.parse(jogadores);
-    } 
+    this.jogadorService.todosJogadores().then(response => {
+      if (response!= undefined) {
+        this.jogadores = response as Jogador[];
+      }
+  });
   }
 
   selecionarJogador(jogador: any) {
@@ -33,13 +36,12 @@ export class ListarJogadoresComponent implements OnInit {
   excluirJogador(jogador: any){
     this.jogadorSelecionado = jogador;
     if (this.jogadorSelecionado) {
-      const indice = this.jogadores.findIndex(clube => clube.id === this.jogadorSelecionado.id);
-      if (indice !== -1) {
-        this.jogadores.splice(indice, 1);
-        localStorage.setItem('jogadores', JSON.stringify(this.jogadores));
-        this.jogadorSelecionado = null;
-        this.router.navigate(['/home']);
-      }
+      this.jogadorService.deletar(this.jogadorSelecionado.id).then(response => {
+        if (response != undefined) {
+          this.jogadorSelecionado = null;
+          this.router.navigate(['/home']);
+        }
+    });
     }
   }
 

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { JogadorService } from '../jogador.service';
+import { Jogador } from '../model/jogador';
 
 @Component({
   selector: 'app-editar-jogador',
@@ -11,7 +13,7 @@ export class EditarJogadorComponent implements OnInit {
   @Input() jogador: any;
   jogadorId: number | undefined;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private jogadorService: JogadorService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -19,30 +21,13 @@ export class EditarJogadorComponent implements OnInit {
       const jogadorFromState = history.state.jogador;
       if (jogadorFromState) {
         this.jogador = jogadorFromState;
-      } else {
-        const jogadoresString = localStorage.getItem('jogadores');
-        if (jogadoresString) {
-          const jogadores = JSON.parse(jogadoresString);
-          const jogadorEncontrado = jogadores.find((jogador: any) => jogador.id === this.jogadorId);
-          if (jogadorEncontrado) {
-            this.jogador = jogadorEncontrado;
-          }
-        }
       }
     });
   }
 
   editarJogador() {
-    const jogadoresString = localStorage.getItem('jogadores');
-    if (jogadoresString) {
-      const jogadores = JSON.parse(jogadoresString);
-      const indice = jogadores.findIndex((jogador: any) => jogador.id === this.jogadorId);
-      if (indice !== -1) {
-        jogadores[indice] = this.jogador;
-        localStorage.setItem('jogadores', JSON.stringify(jogadores));
-        this.router.navigate(['/home']);
-      }
-    }
+    this.jogadorService.editar(this.jogador);
+    this.router.navigate(['/home']);
   }
 
   cancelar(): void {
