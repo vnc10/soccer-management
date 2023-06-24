@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Jogador } from '../model/jogador';
 import { ActivatedRoute, Router } from '@angular/router';
+import { JogadorService } from '../jogador.service';
 
 @Component({
   selector: 'app-cadastro-jogador',
@@ -15,7 +16,7 @@ export class CadastroJogadorComponent {
   dataNascimento!: string;
   clube!: string;
 
-  constructor(private router: ActivatedRoute, private route: Router) {
+  constructor(private router: ActivatedRoute, private route: Router, private jogadorService: JogadorService) {
   }
 
   cadastrar(): void {
@@ -26,9 +27,7 @@ export class CadastroJogadorComponent {
       this.dataNascimento,
       this.clube
     );
-    let jogadores: Jogador[] = JSON.parse(localStorage.getItem('jogadores')!) || [];
-    jogadores.push(jogador);
-    localStorage.setItem('jogadores', JSON.stringify(jogadores));
+    this.jogadorService.cadastrar(jogador);
 
     this.route.navigate(['/home']);
 

@@ -1,0 +1,4 @@
+{
+    "/jogadores/": "/jogadores/",
+    "/jogadores/id/:t": "/jogadores?id=:t"
+}

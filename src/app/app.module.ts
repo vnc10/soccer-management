@@ -15,6 +15,7 @@ import { ListarClubesComponent } from './listar-clubes/listar-clubes.component';
 import { EditarJogadorComponent } from './editar-jogador/editar-jogador.component';
 import { FormsModule } from '@angular/forms';
 import { EditarClubeComponent } from './editar-clube/editar-clube.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { EditarClubeComponent } from './editar-clube/editar-clube.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

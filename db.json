@@ -1,0 +1,36 @@
+{
+  "jogadores": [
+    {
+      "id": 1,
+      "nome": "Cristiano Ronaldo",
+      "posição": "Atacante",
+      "altura": "1.85",
+      "dataDeNascimento": "01/01/1975",
+      "clube": "Real Madrid"
+    },
+    {
+      "id": 2,
+      "nome": "Lionel Messi",
+      "posição": "Atacante",
+      "altura": "1.65",
+      "dataDeNascimento": "01/01/1978",
+      "clube": "Barcelona"
+    },
+    {
+      "id": 3,
+      "nome": "David Terans",
+      "posição": "Atacante",
+      "altura": "1.85",
+      "dataDeNascimento": "01/01/1975",
+      "clube": "Athletico Paranaense"
+    },
+    {
+      "nome": "Vinicius Petrix",
+      "posicao": "Atacante",
+      "altura": "1.66",
+      "dataNascimento": "15/01/1996",
+      "clube": "Athletico Pr",
+      "id": 9914
+    }
+  ]
+}
