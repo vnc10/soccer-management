@@ -1,0 +1,44 @@
+{
+  "jogadores": [
+    {
+      "id": 1,
+      "nome": "Cristiano Ronaldo",
+      "posicao": "Atacante",
+      "altura": "1.85",
+      "dataNascimento": "01/01/1975",
+      "clube": "Real Madrid"
+    },
+    {
+      "id": 2,
+      "nome": "Lionel Messi",
+      "posicao": "Atacante",
+      "altura": "1.65",
+      "dataNascimento": "01/01/1978",
+      "clube": "Barcelona"
+    },
+    {
+      "id": 55,
+      "nome": "Agustin Canobio",
+      "posicao": "Atacante",
+      "altura": "1.85",
+      "dataNascimento": "01/01/1975",
+      "clube": "Athletico Paranaense"
+    },
+    {
+      "nome": "David Terans",
+      "posicao": "Meia",
+      "altura": "1.65",
+      "dataNascimento": "10/10/1583",
+      "clube": "Athletico Pr",
+      "id": 3646
+    },
+    {
+      "nome": "Vinicius Petris",
+      "posicao": "Atacante",
+      "altura": "1.70",
+      "dataNascimento": "15/01/1996",
+      "clube": "Athletico Pr",
+      "id": 5091
+    }
+  ]
+}
