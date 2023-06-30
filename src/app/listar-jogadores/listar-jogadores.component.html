@@ -12,4 +12,5 @@
       <button (click) = "this.excluirJogador(jogador)" class="btn">Excluir</button>
     </div>
   </div>
+  <div *ngIf="jogadores.length === 0" class="empty-message">Nenhum jogador encontrado.</div>
 </div>
