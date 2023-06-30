@@ -4,6 +4,7 @@ O software será responsável pela criação de times de futebol e seus respecti
 
 ## Endereço de Deploy - GitHub Pages
 
+git@github.com:vnc10/soccer-management.git
 
 ## Protótipo
 
