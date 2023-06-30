@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --production --base-href=/soccer-management/",
-    "ghpages": "angular-cli-ghpages --dir=dist/soccer-management/",
+    "build": "ng build --configuration=production --base-href=/soccer-management/",
+    "ghpages": "angular-cli-ghpages --dir=dist/soccer-management/ --repo=https://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@github.com/vnc10/soccer-management.git --name=vnc10 --email=viniciusbosa@gmail.com",
     "deploy": "npm run build & npm run ghpages",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
