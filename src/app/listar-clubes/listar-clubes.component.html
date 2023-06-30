@@ -12,5 +12,6 @@
         <button (click)="this.excluirClube(clube)" class="btn">Excluir</button>
       </div>
     </div>
+    <div *ngIf="clubes.length === 0" class="empty-message">Nenhum clube encontrado.</div>
   </div>
   
